@@ -19,7 +19,7 @@ func TestValid(t *testing.T) {
 }
 
 func TestGeneratesTheControlDigit(t *testing.T) {
-	control_digit := generateControlDigit("811218987")
+	control_digit := GenerateControlDigit("811218987")
 
 	if control_digit != 6 {
 		t.Error("Expexted control_digit to equal 6, was", control_digit)

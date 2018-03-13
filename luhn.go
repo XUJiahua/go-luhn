@@ -20,7 +20,7 @@ func Valid(luhnString string) bool {
 // The returned string is valid according to the Luhn algorithm.
 func Generate(size int) string {
 	random := randomString(size - 1)
-	controlDigit := strconv.Itoa(generateControlDigit(random))
+	controlDigit := strconv.Itoa(GenerateControlDigit(random))
 
 	return random + controlDigit
 }
@@ -32,7 +32,7 @@ func GenerateWithPrefix(size int, prefix string) string {
 	size = size - 1 - len(prefix)
 
 	random := prefix + randomString(size)
-	controlDigit := strconv.Itoa(generateControlDigit(random))
+	controlDigit := strconv.Itoa(GenerateControlDigit(random))
 
 	return random + controlDigit
 }
@@ -48,7 +48,7 @@ func randomString(size int) string {
 	return integersToString(source)
 }
 
-func generateControlDigit(luhnString string) int {
+func GenerateControlDigit(luhnString string) int {
 	controlDigit := calculateChecksum(luhnString, true) % 10
 
 	if controlDigit != 0 {
